@@ -1,0 +1,80 @@
+body {
+    background-color: #121212; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px; /* Tamaño de fuente aumentado */
+  }
+  
+  h1, h2 {
+    color: #ffc107; /* Amarillo */
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo de la tabla */
+    border-collapse: collapse;
+    margin: 0 auto; /* Centrar la tabla horizontalmente */
+    margin-bottom: 20px;
+    font-size: 14px; /* Tamaño de fuente base */
+    border: 2px solid #ffc107; /* Borde blanco de mayor grosor */
+  }
+  
+  th, td {
+    border: 1px solid #ffc107; /* Bordes blancos */
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: rgb(23,23,23); /* Gris oscuro */
+    color: #ffc107; /* Texto amarillo */
+    font-size: 16px; /* Tamaño de fuente para encabezados - Aumentado */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    width: auto; /* Ajustar ancho al contenido */
+  }
+  
+  td {
+    background-color: rgb(23,23,23); /* Gris oscuro */
+    font-size: 18px; /* Tamaño de fuente para celdas de datos - Aumentado */
+  }
+  
+  /* Estilo para las filas con horarios */
+  tr td {
+    padding: 8px; /* Espaciado uniforme en celdas de datos */
+  }
+  
+  /* Espacio entre las tablas */
+  h2 {
+    margin-top: 30px;
+  }
+  
+  /* Media queries para ajustar el tamaño de fuente y los espacios en pantallas pequeñas */
+  @media screen and (max-width: 768px) {
+    table {
+      font-size: 12px;
+    }
+  
+    th, td {
+      padding: 6px;
+    }
+  
+    h2 {
+      margin-top: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    table {
+      font-size: 10px;
+    }
+  
+    th, td {
+      padding: 4px;
+    }
+  
+    h2 {
+      margin-top: 10px;
+    }
+  }
+  

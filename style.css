@@ -1,0 +1,142 @@
+@media (max-width: 768px) {
+    .titulo {
+      font-size: 24px;
+    }
+  
+    .ubicacion label {
+      font-size: 16px;
+    }
+  
+    select {
+      font-size: 14px;
+    }
+  
+    .info p {
+      font-size: 16px;
+    }
+  }
+  
+  body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  
+  .opciones {
+    margin-bottom: 20px;
+  }
+  
+  .tiempo {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .siguiente-micro {
+    margin-bottom: 20px;
+  }
+  
+  .siguiente-micro p {
+    margin: 5px 0;
+  }
+  
+  .imagen {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .titulo {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .titulo-texto {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffc107;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+  
+  .ubicacion-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .label-ubicacion {
+    flex: 0 0 150px;
+    font-size: 30px;
+    color: #f0f0f0;
+    white-space: nowrap;
+  }
+  
+  .select-ubicacion {
+    margin-bottom: 20px;
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tiempo-restante {
+    font-size: 1.2em; /* Tamaño de fuente relativo */
+    color: #ffc107;
+    margin-bottom: 10px;
+  }
+  
+  button#ver-horarios-btn {
+    margin-bottom: 10px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease; /* Transición para la animación */
+  }
+  
+  /* Estilos para el botón al ser presionado */
+  button#ver-horarios-btn:active {
+    transform: scale(0.9); /* Escalar el botón al ser presionado */
+    
+  }
+
+  h1, h2 {
+    color: #ffc107; /* Amarillo */
+    text-align: center;
+  }
+
+  .footer{
+    margin-top: 10px;
+    color: #333
+  }
