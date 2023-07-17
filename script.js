@@ -122,6 +122,7 @@ function calculoDiaSiguiente(mH, mM, sH, sM){
             return [Math.abs(((24-mH)+(sH))),Math.abs(mM-sM)];
         }
     }
+
 } 
 
 let now = Date.now();
@@ -149,6 +150,13 @@ horaactualDOM.innerText = "Tu horario capturado fue " + hour;
 let proximoDOM = document.getElementById("siguiente-micro-horario")
 proximoDOM.innerText = "El proximo micro es a las " + proximo[0] + ":" + proximo[1] + "hs";
 
+if((restante[0] == 0 || restante[0] == 1) && (restante[1] > 20)){
+    timerestanteDOM.style.color = "rgb(0, 255, 0)"
+}else if((restante[0] == 0) && (restante[1] < 20 && restante[1] >= 10  )){
+    timerestanteDOM.style.color = "rgb(255, 255, 0)"
+}else if((restante[0] == 0) && (restante[1] < 10)){
+    timerestanteDOM.style.color = "rgb(255, 99, 71)"
+}
 encontrarListaDia(day,1);
 restante = calculoDiaSiguiente(miH, miM, proximo[0], proximo[1]);
 
@@ -161,12 +169,9 @@ let proximomzaDOM = document.getElementById("siguiente-micro-horario-mza")
 proximomzaDOM.innerText = "El proximo micro es a las " + proximo[0] + ":" + proximo[1] + "hs";
 
 if((restante[0] == 0 || restante[0] == 1) && (restante[1] > 20)){
-    timerestanteDOM.style.color = "rgb(0, 255, 0)"
     timerestantemzaDOM.style.color = "rgb(0, 255, 0)"
 }else if((restante[0] == 0) && (restante[1] < 20 && restante[1] >= 10  )){
-    timerestanteDOM.style.color = "rgb(255, 255, 0)"
     timerestantemzaDOM.style.color = "rgb(255, 255, 0)"
 }else if((restante[0] == 0) && (restante[1] < 10)){
-    timerestanteDOM.style.color = "rgb(255, 99, 71)"
     timerestantemzaDOM.style.color = "rgb(255, 99, 71)"
 }
