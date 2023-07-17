@@ -164,7 +164,7 @@ if((restante[0] == 0 || restante[0] == 1) && (restante[1] > 20)){
     timerestanteDOM.style.color = "rgb(0, 255, 0)"
     timerestantemzaDOM.style.color = "rgb(0, 255, 0)"
 }else if((restante[0] == 0) && (restante[1] < 20 && restante[1] >= 10  )){
-    timerestanteDOM.style.color = "rgb(255, 255, 0))"
+    timerestanteDOM.style.color = "rgb(255, 255, 0)"
     timerestantemzaDOM.style.color = "rgb(255, 255, 0)"
 }else if((restante[0] == 0) && (restante[1] < 10)){
     timerestanteDOM.style.color = "rgb(255, 99, 71)"
