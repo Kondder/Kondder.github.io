@@ -156,7 +156,7 @@ if((restante[1] >= 0)){
     }else if(restante[0] == 0 && restante[1] > 20){
         timerestanteDOM.style.color = "rgb(0, 255, 0)"
     }  
-}else if((restante[0] == 0) && (restante[1] < 20 && restante[1] >= 10  )){
+}else if((restante[0] == 0) && (restante[1] < 20 || restante[1] >= 10  )){
     timerestanteDOM.style.color = "rgb(255, 255, 0)"
 }else if((restante[0] == 0) && (restante[1] < 10)){
     timerestanteDOM.style.color = "rgb(255, 99, 71)"
@@ -179,7 +179,7 @@ if((restante[1] >= 0)){
     }else if(restante[0] == 0 && restante[1] > 20){
         timerestantemzaDOM.style.color = "rgb(0, 255, 0)"
     } 
-}else if((restante[0] == 0) && (restante[1] < 20 && restante[1] >= 10  )){
+}else if((restante[0] == 0) && (restante[1] < 20 || restante[1] >= 10  )){
     timerestantemzaDOM.style.color = "rgb(255, 255, 0)"
 }else if((restante[0] == 0) && (restante[1] < 10)){
     timerestantemzaDOM.style.color = "rgb(255, 99, 71)"
