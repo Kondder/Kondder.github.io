@@ -112,6 +112,7 @@
   }
   
   button#ver-horarios-btn {
+    margin-right: 10px;
     margin-bottom: 10px;
     font-family: "Helvetica Neue", Arial, sans-serif;
     padding: 10px 20px;
@@ -139,4 +140,10 @@
   .footer{
     margin-top: 10px;
     color: #474747
+  }
+
+  .buttones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
