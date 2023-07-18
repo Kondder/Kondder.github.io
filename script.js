@@ -25,15 +25,6 @@ let sundayMendoza = [
 ];
 
 
-let Riva = [
-    weekdaysRivadavia, saturdayRivadavia, sundayRivadavia
-]
-
-let Mza = [
-    weekdaysMendoza, saturdayMendoza, sundayMendoza
-]
-
-
 function encontrarListaDia(day,ubicacion){
 
     if(ubicacion == 0){
@@ -101,6 +92,7 @@ function encontrarHorario (mH, mM, day, total){
             }
         }
     }
+    console.log(proximo)
     proximo = [hourEncontrada, minEncontrado];
     
     
@@ -150,15 +142,17 @@ horaactualDOM.innerText = "Tu horario capturado fue " + hour;
 let proximoDOM = document.getElementById("siguiente-micro-horario")
 proximoDOM.innerText = "El proximo micro es a las " + proximo[0] + ":" + proximo[1] + "hs";
 
-if((restante[1] >= 0)){
-    if(restante[0] = 1){
+if((restante[0] >= 0)){
+    if(restante[1] > 20){
         timerestanteDOM.style.color = "rgb(0, 255, 0)"
     }else if(restante[0] == 0 && restante[1] > 20){
         timerestanteDOM.style.color = "rgb(0, 255, 0)"
     }  
-}else if((restante[0] == 0) && (restante[1] < 20 || restante[1] >= 10  )){
+}
+if((restante[0] == 0) && ((restante[1] < 20) && (restante[1] >= 10))){
     timerestanteDOM.style.color = "rgb(255, 255, 0)"
-}else if((restante[0] == 0) && (restante[1] < 10)){
+}
+if((restante[0] == 0) && (restante[1] < 10)){
     timerestanteDOM.style.color = "rgb(255, 99, 71)"
 }
 encontrarListaDia(day,1);
@@ -173,14 +167,15 @@ timerestantemzaDOM.innerText = restante[0] + "hs " + restante[1] + "m "
 let proximomzaDOM = document.getElementById("siguiente-micro-horario-mza")
 proximomzaDOM.innerText = "El proximo micro es a las " + proximo[0] + ":" + proximo[1] + "hs";
 
-if((restante[1] >= 0)){
-    if(restante[0] >= 1){
+if((restante[0] >= 0)){
+    if(restante[1] > 20){
         timerestantemzaDOM.style.color = "rgb(0, 255, 0)"
     }else if(restante[0] == 0 && restante[1] > 20){
         timerestantemzaDOM.style.color = "rgb(0, 255, 0)"
-    } 
-}else if((restante[0] == 0) && (restante[1] < 20 || restante[1] >= 10  )){
+    }  
+}else if((restante[0] == 0) && ((restante[1] < 20) && (restante[1] >= 10))){
     timerestantemzaDOM.style.color = "rgb(255, 255, 0)"
-}else if((restante[0] == 0) && (restante[1] < 10)){
+}
+if((restante[0] == 0) && (restante[1] < 10)){
     timerestantemzaDOM.style.color = "rgb(255, 99, 71)"
 }
