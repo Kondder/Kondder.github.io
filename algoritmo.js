@@ -82,26 +82,24 @@ function tiempoRestante(mH, mM, sH, sM){
     return [restHour, restMin];
 }*/
 
-function proximaHora (hour,day){
+function posicionElemento (hour,day){
 
-    result = [-1,-1]
-    for(var i = 0; i< day.length; i++){
-        hourDay = parseInt( day[i][0] + day[i][1]);
-        minDay = parseInt( day[i][3] + day[i][4]);
-        
-        if(hour[0] <= hourDay){
-            if(hour[1] <= minDay){
-                restHour = tiempoRestante(hour[0],hour[1],hourDay,minDay)[0];
-                restMin = tiempoRestante(hour[0],hour[1],hourDay,minDay)[1];
-                
-                return result = [restHour,restMin]
-            }
-        }   
+    listMinutes = aMinutos(day)
+    myHourinMinute = hour[0]*60 + hour[1];
+
+    for(var i = 0; i < day.length; i++){
+        if(myHourinMinute <= listMinutes[i]){
+
+            hora = proximaHora(i,day);
+
+            return [tiempoRestante[hour[0],hour[1],hora[0], hora[1]]]
+        }
     }
-
-    return result
 }
 
+function proximaHora(posicion,day){
+    return [parseInt(day[posicion][0]+day[posicion][1]), parseInt(day[posicion][3] + day[posicion][4])]
+}
 function diaCorrespondiente (dayNumber){
 
     if(dayNumber >= 1 && dayNumber <= 5){
@@ -113,8 +111,21 @@ function diaCorrespondiente (dayNumber){
     }
 }
 
+function aMinutos (day){
+
+    let listMinutes = [];
+    for(var i = 0; i < day.length; i++){
+        let hour = parseInt(day[i][0] + day[i][1])*60;
+        let minute = parseInt(day[i][3] + day[i][4]) ;
+
+        listMinutes.push(hour+minute);
+    }
+
+    return listMinutes;
+}
+
 //Rivadavia
-var restanteRivadavia = proximaHora(hourNow,Riva[diaCorrespondiente(day)])
+var restanteRivadavia = posicionElemento(hourNow,Riva[diaCorrespondiente(day)])
 
 let restanteDOM = document.getElementById("tiempo-restante-label")
 restanteDOM.innerText = "Faltan " + restanteRivadavia[0] + "hs " + restanteRivadavia[1] + "min"
@@ -123,7 +134,7 @@ let proximoDOM = document.getElementById("siguiente-micro-horario")
 proximoDOM.innerText = "El proximo micro es a las " + hourDay + ":" + minDay + "hs";
 
 //Mendoza
-var restanteMendoza = proximaHora(hourNow,Mza[diaCorrespondiente(day)])
+var restanteMendoza = posicionElemento(hourNow,Mza[diaCorrespondiente(day)])
 
 let restantemzaDOM = document.getElementById("tiempo-restante-mza")
 restantemzaDOM.innerText = "Faltan " + restanteMendoza[0] + "hs " + restanteMendoza[1] + "min"
