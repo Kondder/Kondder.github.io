@@ -64,7 +64,9 @@ function posicionElemento (hour,day){
 
             hourDay = hora[0]
             minDay = hora[1]
-            return tiempoRestante([hour[0],hour[1],hora[0], hora[1]])
+            console.log(hourDay)
+            console.log(tiempoRestante([hourNow[0],hourNow[1],hora[0], hora[1]]))
+            return tiempoRestante(hour[0],hour[1],hora[0], hora[1])
         }
     }
     
@@ -74,7 +76,9 @@ function posicionElemento (hour,day){
 }
 
 function proximaHora(posicion,day){
-    return [parseInt(day[posicion][0]+day[posicion][1]), parseInt(day[posicion][3] + day[posicion][4])]
+    if (day.length > posicion) {
+        return [parseInt(day[posicion][0] + day[posicion][1]), parseInt(day[posicion][3] + day[posicion][4])];
+    }
 }
 function diaCorrespondiente (dayNumber){
 
@@ -95,8 +99,7 @@ function aMinutos (day){
         let minute = parseInt(day[i][3] + day[i][4]) ;
 
         listMinutes.push(hour+minute);
-    }
-
+    }   
     return listMinutes;
 }
 
@@ -106,7 +109,7 @@ var restanteRivadavia = posicionElemento(hourNow,Riva[diaCorrespondiente(day)])
 let restanteDOM = document.getElementById("tiempo-restante-label")
 let proximoDOM = document.getElementById("siguiente-micro-horario")
 
-if( restanteRivadavia[0] == 0 && restanteRivadavia[1] == 0){
+if(restanteRivadavia[0] == 0 && restanteRivadavia[1] == 0){
     restanteDOM.innerText = "No hay micros disponibles para hoy. Revise los horarios haciendo click en Ver horarios";
 }else{
     restanteDOM.innerText = "Faltan " + restanteRivadavia[0] + "hs " + restanteRivadavia[1] + "min";
