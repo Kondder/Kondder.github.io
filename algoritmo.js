@@ -2,7 +2,7 @@ let now = Date.now();
 let d = new Date(now);
 let day = d.getDay(); //dia de hoy en un valor numerio
 let hour = new Date().toLocaleTimeString("es-AR");  //hora de hoy
-let hourDay, hourMin;
+let hourDay, minDay;
 
 var hourNow = [parseInt(hour[0]+hour[1]), parseInt(hour[3]+hour[4])]
 
@@ -51,49 +51,25 @@ function tiempoRestante(mH, mM, sH, sM){
         return [Math.abs(mH-sH),Math.abs(mM-sM)];
     }
 
-}   
-/*function proxima (hour,day){
-    let minDay, hourDay;
-    end = day.length - 1
-
-    if((hour[0] > (day[end][0] + day[end][1])) && (hour[1] > (day[end][3] + day[end][4]))){
-        return [-1,-1];
-    }else{
-        for (var i = 0; i <= end; i++){
-            hourDay = parseInt( day[i][0] + day[i][1]);
-            minDay = parseInt( day[i][3] + day[i][4]);
-
-            if(hour[0] <= hourDay){
-                restHour = tiempoRestante(hour[0],hour[1],hourDay,minDay)[0];
-    
-                for(var j = i; j <= end; j++){
-                    minDay = parseInt( day[j][3] + day[j][4]);
-    
-                    if((hour[0] == hourDay) && hour[1] <= minDay ){
-                        restMin = tiempoRestante(hour[0],hour[1],hourDay,minDay)[1];
-                        break;
-                    }
-                }
-                break;
-            }
-            console.log("La proxima hora es "+ hourDay,minDay)
-        }
-    }
-    return [restHour, restMin];
-}*/
+}
 
 function posicionElemento (hour,day){
 
     listMinutes = aMinutos(day)
     myHourinMinute = hour[0]*60 + hour[1];
-
+    hora = [0,0];
     for(var i = 0; i < day.length; i++){
         if(myHourinMinute <= listMinutes[i]){
-
             hora = proximaHora(i,day);
 
-            return [tiempoRestante[hour[0],hour[1],hora[0], hora[1]]]
+            hourDay = hora[0]
+            minDay = hora[1]
+            return tiempoRestante([hour[0],hour[1],hora[0], hora[1]])
         }
+    }
+    
+    if (hora[0] === 0 && hora[1] === 0) {
+        return hora;
     }
 }
 
@@ -125,22 +101,29 @@ function aMinutos (day){
 }
 
 //Rivadavia
+console.log(hourNow)
 var restanteRivadavia = posicionElemento(hourNow,Riva[diaCorrespondiente(day)])
-
 let restanteDOM = document.getElementById("tiempo-restante-label")
-restanteDOM.innerText = "Faltan " + restanteRivadavia[0] + "hs " + restanteRivadavia[1] + "min"
-
 let proximoDOM = document.getElementById("siguiente-micro-horario")
-proximoDOM.innerText = "El proximo micro es a las " + hourDay + ":" + minDay + "hs";
+
+if( restanteRivadavia[0] == 0 && restanteRivadavia[1] == 0){
+    restanteDOM.innerText = "No hay micros disponibles para hoy. Revise los horarios haciendo click en Ver horarios";
+}else{
+    restanteDOM.innerText = "Faltan " + restanteRivadavia[0] + "hs " + restanteRivadavia[1] + "min";
+    proximoDOM.innerText = "El proximo micro es a las " + hourDay + ":" + minDay + "hs";
+}
 
 //Mendoza
 var restanteMendoza = posicionElemento(hourNow,Mza[diaCorrespondiente(day)])
-
 let restantemzaDOM = document.getElementById("tiempo-restante-mza")
-restantemzaDOM.innerText = "Faltan " + restanteMendoza[0] + "hs " + restanteMendoza[1] + "min"
-
 let proximomzaDOM = document.getElementById("siguiente-micro-horario-mza")
-proximomzaDOM.innerText = "El proximo micro es a las " + hourDay + ":" + minDay + "hs";
+
+if( restanteMendoza[0] == 0 && restanteMendoza[1] == 0){
+    restantemzaDOM.innerText = "No hay micros disponibles para hoy. Revise los horarios haciendo click en Ver horarios";
+}else{
+    restantemzaDOM.innerText = "Faltan " + restanteRivadavia[0] + "hs " + restanteRivadavia[1] + "min";
+    proximomzaDOM.innerText = "El proximo micro es a las " + hourDay + ":" + minDay + "hs";
+}
 //Hora actual
 let horaactualDOM = document.getElementById("hora-actual");
 horaactualDOM.innerText = "Tu horario capturado fue " + hour;
