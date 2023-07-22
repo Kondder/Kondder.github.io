@@ -124,7 +124,7 @@ let proximomzaDOM = document.getElementById("siguiente-micro-horario-mza")
 if( restanteMendoza[0] == 0 && restanteMendoza[1] == 0){
     restantemzaDOM.innerText = "No hay micros disponibles para hoy. Revise los horarios haciendo click en Ver horarios";
 }else{
-    restantemzaDOM.innerText = "Faltan " + restanteRivadavia[0] + "hs " + restanteRivadavia[1] + "min";
+    restantemzaDOM.innerText = "Faltan " + restanteMendoza[0] + "hs " + restanteMendoza[1] + "min";
     proximomzaDOM.innerText = "El proximo micro es a las " + hourDay + ":" + minDay + "hs";
 }
 //Hora actual
